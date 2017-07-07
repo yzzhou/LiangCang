@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <include layout="@layout/base_title"/>
-    <GridView
-        android:id="@+id/gv_daren"
+    <ImageView
+        android:id="@+id/iv_shop_type"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:numColumns="3" />
+        android:layout_height="150dp"
+        android:padding="2dp"
+        />
 </LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <ImageView
+        android:id="@+id/iv_brand_icon"
+        android:background="@drawable/ic_login_logo"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/iv_brand_icon"
+            android:layout_centerVertical="true"
+            android:id="@+id/tv_brand_name"
+            android:text="名称"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_arrow_shopgood"
+            android:id="@+id/ib_brand_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+</RelativeLayout>

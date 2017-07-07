@@ -15,7 +15,7 @@
         android:gravity="center_vertical"
         android:layout_centerInParent="true"/>
     <ImageView
-        android:id="@+id/base_back"
+        android:id="@+id/base_search"
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
 
     <ImageView
         android:visibility="visible"
-        android:id="@+id/base_setting"
+        android:id="@+id/base_shop"
         android:layout_marginRight="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <include layout="@layout/base_title"/>
-    <GridView
-        android:id="@+id/gv_daren"
+    <ListView
+        android:id="@+id/lv_brand"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="3" />
+        android:background="#11000000"
+        android:divider="#00000000"
+        android:dividerHeight="18dp"></ListView>
 </LinearLayout>

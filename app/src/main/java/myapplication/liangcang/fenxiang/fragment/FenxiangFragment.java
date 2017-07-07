@@ -18,10 +18,10 @@ public class FenxiangFragment extends BaseFragment {
 
     @Bind(R.id.base_title)
     TextView baseTitle;
-    @Bind(R.id.base_back)
-    ImageView baseBack;
-    @Bind(R.id.base_setting)
-    ImageView baseSetting;
+    @Bind(R.id.base_search)
+    ImageView basesearch;
+    @Bind(R.id.base_shop)
+    ImageView baseshop;
     @Bind(R.id.fl_fenxiang)
     FrameLayout fl_fenxiang;
 
