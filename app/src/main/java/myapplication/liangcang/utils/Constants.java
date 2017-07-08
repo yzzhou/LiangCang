@@ -25,4 +25,6 @@ public class Constants {
     public static String BASE_URL_SHOP_GIF_FRIEND="http://mobile.iliangcang.com/goods/goodsList?app_key=Android&count=10&list_id=4&page=1&sig=73760B2740FA36D5A273523FBC9295FE%7C285269230036268&v=1.0";
     public static String BASE_URL_SHOP_GIF_CHILD="http://mobile.iliangcang.com/goods/goodsList?app_key=Android&count=10&list_id=5&page=1&sig=73760B2740FA36D5A273523FBC9295FE%7C285269230036268&v=1.0";
     public static String BASE_URL_SHOP_GIF_PARENT="http://mobile.iliangcang.com/goods/goodsList?app_key=Android&count=10&list_id=6&page=1&sig=73760B2740FA36D5A273523FBC9295FE%7C285269230036268&v=1.0";
+    public static String BASE_URL_FENXIANG_DUANZI="http://s.budejie.com/topic/tag-topic/64/hot/budejie-android-6.6.3/0-20.json";
+    public static String BASE_URL_FENXIANG_TUIJIAN="http://s.budejie.com/topic/list/jingxuan/1/budejie-android-6.6.3/0-20.json";
 }

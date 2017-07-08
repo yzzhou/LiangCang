@@ -2,6 +2,8 @@ package myapplication.liangcang.common;
 
 import android.app.Application;
 
+import org.xutils.x;
+
 /**
  * Created by zhouzhou on 2017/7/6.
  */
@@ -13,6 +15,7 @@ public class MyApplication extends Application {
         super.onCreate();
         instance = this;
         //initOkhttpUtils();
+        x.Ext.init(this);
 
     }
 
