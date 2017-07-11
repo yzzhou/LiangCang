@@ -21,7 +21,7 @@ import myapplication.liangcang.shop.bean.ShopSpecialInfo;
  * Created by zhouzhou on 2017/7/7.
  */
 
-public class ShopSpecialAdapter extends RecyclerView.Adapter<ShopSpecialAdapter.MyViewHolder> {
+public class ShopSpecialAdapter extends RecyclerView.Adapter<ShopSpecialAdapter.MyViewHolder> implements View.OnClickListener {
 
     private final Context context;
     private final List<ShopSpecialInfo.DataBean.ItemsBean> datas;
@@ -36,11 +36,14 @@ public class ShopSpecialAdapter extends RecyclerView.Adapter<ShopSpecialAdapter.
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = View.inflate(context, R.layout.item_shop_special, null);
-        return new MyViewHolder(itemView);
+        MyViewHolder view = new MyViewHolder(itemView);
+
+        return  view;
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+        //String url = datas.get(position).getAccess_url();
         String imageUrl = datas.get(position).getCover_img_new();
         Glide.with(context)
                 .load(imageUrl)
@@ -49,12 +52,23 @@ public class ShopSpecialAdapter extends RecyclerView.Adapter<ShopSpecialAdapter.
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.ivShopSpecial);
         holder.tvShopSpecial.setText(datas.get(position).getTopic_name());
+        holder.itemView.setTag(datas.get(position));
+        holder.itemView.setOnClickListener(this);
+
+
     }
 
 
     @Override
     public int getItemCount() {
         return datas == null ? 0 : datas.size();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (mOnItemClickListener != null) {
+            mOnItemClickListener.onItemClick(v, (ShopSpecialInfo.DataBean.ItemsBean) v.getTag());
+        }
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
@@ -66,5 +80,15 @@ public class ShopSpecialAdapter extends RecyclerView.Adapter<ShopSpecialAdapter.
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
+    }
+    public  interface OnRecyclerViewItemClickListener {
+        //void onItemClick(View view , ShopSpecialInfo.DataBean.ItemsBean data,int position);
+
+        void onItemClick(View v, ShopSpecialInfo.DataBean.ItemsBean tag);
+    }
+    private OnRecyclerViewItemClickListener mOnItemClickListener = null;
+
+    public void setOnItemClickListener(OnRecyclerViewItemClickListener listener) {
+        this.mOnItemClickListener = listener;
     }
 }

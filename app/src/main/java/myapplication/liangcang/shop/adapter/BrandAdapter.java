@@ -1,11 +1,13 @@
 package myapplication.liangcang.shop.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -15,6 +17,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import myapplication.liangcang.R;
+import myapplication.liangcang.shop.activity.BrandDetailActivity;
 import myapplication.liangcang.shop.bean.BrandInfo;
 
 /**
@@ -38,8 +41,8 @@ public class BrandAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
+    public BrandInfo.DataBean.ItemsBean getItem(int position) {
+        return datas.get(position);
     }
 
     @Override
@@ -48,7 +51,7 @@ public class BrandAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (convertView == null) {
             convertView = View.inflate(context, R.layout.item_brand, null);
@@ -56,6 +59,7 @@ public class BrandAdapter extends BaseAdapter {
             viewHolder.ivBrandIcon = (ImageView) convertView.findViewById(R.id.iv_brand_icon);
             viewHolder.tvBrandName = (TextView) convertView.findViewById(R.id.tv_brand_name);
             viewHolder.ibBrandIcon = (ImageButton) convertView.findViewById(R.id.ib_brand_icon);
+            viewHolder.rlitem = (RelativeLayout) convertView.findViewById(R.id.rl_item);
             convertView.setTag(viewHolder);
         }else{
             viewHolder = (ViewHolder) convertView.getTag();
@@ -69,6 +73,15 @@ public class BrandAdapter extends BaseAdapter {
                 .into(viewHolder.ivBrandIcon);
         viewHolder.tvBrandName.setText(datas.get(position).getBrand_name());
         viewHolder.ibBrandIcon.setImageResource(icons[0]);
+        viewHolder.rlitem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, BrandDetailActivity.class);
+                intent.putExtra("name",datas.get(position).getBrand_name());
+                intent.putExtra("icon",datas.get(position).getBrand_logo());
+                context.startActivity(intent);
+            }
+        });
         return convertView;
     }
 
@@ -79,6 +92,8 @@ public class BrandAdapter extends BaseAdapter {
         TextView tvBrandName;
         @Bind(R.id.ib_brand_icon)
         ImageButton ibBrandIcon;
+        @Bind(R.id.rl_item)
+        RelativeLayout rlitem;
 
     }
 }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="myapplication.liangcang">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".common.MyApplication"
         android:allowBackup="true"
@@ -16,7 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.SearchActivity" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".shop.activity.SpecialDetailActivity" />
+        <activity android:name=".shop.activity.BrandDetailActivity" />
+        <activity android:name=".shop.activity.TypeErjiActivity"></activity>
     </application>
 
 </manifest>

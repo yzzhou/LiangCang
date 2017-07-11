@@ -1,5 +1,6 @@
 package myapplication.liangcang.shop.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,6 +16,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import myapplication.liangcang.R;
 import myapplication.liangcang.base.BaseFragment;
+import myapplication.liangcang.shop.activity.TypeErjiActivity;
 import myapplication.liangcang.shop.adapter.ShopTypeAdapter;
 import myapplication.liangcang.shop.bean.ShopTypeInfo;
 import myapplication.liangcang.utils.Constants;
@@ -87,5 +89,22 @@ public class TypeFragment extends BaseFragment {
         lvType.setLayoutManager(layout);
         adapter = new ShopTypeAdapter(mContext,datas);
         lvType.setAdapter(adapter);
+//        adapter.setOnItemClickListener(new ShopSpecialAdapter.OnRecyclerViewItemClickListener() {
+//            @Override
+//            public void onItemClick(View v, ShopSpecialInfo.DataBean.ItemsBean tag) {
+//                Intent intent = new Intent(mContext,TypeErjiActivity.class);
+//                intent.setData(Uri.parse(tag.getTopic_url()));
+//                mContext.startActivity(intent);
+//            }
+//        });
+        adapter.setmOnItemClickListener(new ShopTypeAdapter.OnRecyclerViewItemClickListener() {
+            @Override
+            public void onItemClick(View v, ShopTypeInfo.DataBean.ItemsBean tag) {
+                Intent intent =new Intent(mContext, TypeErjiActivity.class);
+                //intent.setData(Uri.parse(tag.getGoods_url()));
+                mContext.startActivity(intent);
+            }
+        });
+
     }
 }

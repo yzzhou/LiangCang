@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_brand_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="myapplication.liangcang.shop.activity.BrandDetailActivity">
+    <include layout="@layout/base_title_back"/>
+
+    <ImageView
+        android:paddingTop="20dp"
+        android:id="@+id/iv_shop_band_icon"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/ic_login_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_shop_band_name"
+        android:textSize="20sp"
+        android:paddingTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:text="名称"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_shop_band_gushi"
+            android:text="品牌故事"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_shop_band_chanpin"
+            android:text="品牌产品"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

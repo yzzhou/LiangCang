@@ -20,7 +20,7 @@ import myapplication.liangcang.shop.bean.ShopTypeInfo;
  * Created by zhouzhou on 2017/7/7.
  */
 
-public class ShopTypeAdapter extends RecyclerView.Adapter<ShopTypeAdapter.MyViewHolder> {
+public class ShopTypeAdapter extends RecyclerView.Adapter<ShopTypeAdapter.MyViewHolder> implements View.OnClickListener {
     private final Context context;
     private final List<ShopTypeInfo.DataBean.ItemsBean> datas;
 
@@ -40,20 +40,32 @@ public class ShopTypeAdapter extends RecyclerView.Adapter<ShopTypeAdapter.MyView
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        String imageUrl = datas.get(position).getNew_cover_img();
+//        MyViewHolder myViewHolder = holder;
+//        myViewHolder.setData();
+        String imageUrl = datas.get(position).getCover_new_img();
         Glide.with(context)
                 .load(imageUrl)
                 .placeholder(R.drawable.ic_login_logo)
                 .error(R.drawable.ic_login_logo)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.ivShopType);
-    }
+        holder.itemView.setTag(datas.get(position));
+        holder.itemView.setOnClickListener(this);
 
+    }
 
     @Override
     public int getItemCount() {
         return datas == null ? 0 : datas.size();
     }
+
+    @Override
+    public void onClick(View v) {
+        if(mOnItemClickListener !=null){
+            mOnItemClickListener.onItemClick(v, (ShopTypeInfo.DataBean.ItemsBean) v.getTag());
+        }
+    }
+
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.iv_shop_type)
@@ -63,4 +75,19 @@ public class ShopTypeAdapter extends RecyclerView.Adapter<ShopTypeAdapter.MyView
             ButterKnife.bind(this, itemView);
         }
     }
+    public  interface OnRecyclerViewItemClickListener {
+        //void onItemClick(View view , ShopSpecialInfo.DataBean.ItemsBean data,int position);
+
+        void onItemClick(View v, ShopTypeInfo.DataBean.ItemsBean tag);
+    }
+    private ShopTypeAdapter.OnRecyclerViewItemClickListener mOnItemClickListener = null;
+
+//    public void setOnItemClickListener(ShopTypeInfo.OnRecyclerViewItemClickListener listener) {
+//        this.mOnItemClickListener = listener;
+//    }
+    public void setmOnItemClickListener(OnRecyclerViewItemClickListener listener){
+        this.mOnItemClickListener = listener;
+    }
+
+
 }

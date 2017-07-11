@@ -80,8 +80,19 @@ public class BrandGragment extends BaseFragment {
 
     private void processData(String json) {
         BrandInfo brandInfo = JSON.parseObject(json, BrandInfo.class);
-        List<BrandInfo.DataBean.ItemsBean> datas = brandInfo.getData().getItems();
+        final List<BrandInfo.DataBean.ItemsBean> datas = brandInfo.getData().getItems();
         adapter = new BrandAdapter(mContext, datas,icons);
         lvBrand.setAdapter(adapter);
+//        lvBrand.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                //String url = datas.get(position);
+//               // BrandInfo.DataBean.ItemsBean data=  adapter.getItem(position);
+//                //Toast.makeText(mContext, "点击了==", Toast.LENGTH_SHORT).show();
+////                Intent intent = new Intent(mContext,BrandDetailActivity.class);
+////                intent.setData(Uri.parse(url));
+////                mContext.startActivity(intent);
+//            }
+//        });
     }
 }

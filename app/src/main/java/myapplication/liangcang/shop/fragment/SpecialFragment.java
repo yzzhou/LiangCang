@@ -1,5 +1,7 @@
 package myapplication.liangcang.shop.fragment;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,6 +17,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import myapplication.liangcang.R;
 import myapplication.liangcang.base.BaseFragment;
+import myapplication.liangcang.shop.activity.SpecialDetailActivity;
 import myapplication.liangcang.shop.adapter.ShopSpecialAdapter;
 import myapplication.liangcang.shop.bean.ShopSpecialInfo;
 import myapplication.liangcang.utils.Constants;
@@ -27,7 +30,7 @@ import okhttp3.Call;
 public class SpecialFragment extends BaseFragment {
     @Bind(R.id.rl_shop_special)
     RecyclerView rlShopSpecial;
-    private List<ShopSpecialInfo.DataBean.ItemsBean> datas;
+    private List datas;
     private ShopSpecialAdapter adapter;
 
     @Override
@@ -77,12 +80,26 @@ public class SpecialFragment extends BaseFragment {
     }
 
     private void processData(String json) {
-        ShopSpecialInfo shopSpecialInfo = JSON.parseObject(json, ShopSpecialInfo.class);
+        final ShopSpecialInfo shopSpecialInfo = JSON.parseObject(json, ShopSpecialInfo.class);
         datas = shopSpecialInfo.getData().getItems();
         //RecyclerView.LayoutManager layout = new LinearLayoutManager(mContext,2)
         RecyclerView.LayoutManager layout = new LinearLayoutManager(mContext);
         rlShopSpecial.setLayoutManager(layout);
         adapter = new ShopSpecialAdapter(mContext, datas);
         rlShopSpecial.setAdapter(adapter);
+        adapter.setOnItemClickListener(new ShopSpecialAdapter.OnRecyclerViewItemClickListener() {
+            @Override
+            public void onItemClick(View v, ShopSpecialInfo.DataBean.ItemsBean tag) {
+
+                //Toast.makeText(mContext, "点击", Toast.LENGTH_SHORT).show();
+//                跳转到Activity显示新闻详情内容
+                Intent intent = new Intent(mContext,SpecialDetailActivity.class);
+                intent.setData(Uri.parse(tag.getTopic_url()));
+                intent.putExtra("biaoti",tag.getTopic_name());
+                mContext.startActivity(intent);
+            }
+        });
+
+
     }
 }

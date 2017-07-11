@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_search"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="myapplication.liangcang.activity.SearchActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#303235">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:text="搜索商品"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_shopcart_edit"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:text="编辑"-->
+            <!--android:textColor="#303235" />-->
+        <ImageButton
+            android:id="@+id/ib_shop_search_back"
+            android:background="@drawable/ease_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_search_home"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/search_home_shape"
+        android:drawableRight="@drawable/abc_ic_search_api_mtrl_alpha"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        android:text="输入搜索信息"
+        android:textSize="13sp" />
+</LinearLayout>
