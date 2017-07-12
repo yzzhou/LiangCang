@@ -2,6 +2,7 @@ package myapplication.liangcang.shop.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -78,7 +79,8 @@ public class BrandAdapter extends BaseAdapter {
             public void onClick(View v) {
                 Intent intent = new Intent(context, BrandDetailActivity.class);
                 intent.putExtra("name",datas.get(position).getBrand_name());
-                intent.putExtra("icon",datas.get(position).getBrand_logo());
+                //intent.putExtra("position",position);
+                intent.setData(Uri.parse(datas.get(position).getBrand_logo()));
                 context.startActivity(intent);
             }
         });

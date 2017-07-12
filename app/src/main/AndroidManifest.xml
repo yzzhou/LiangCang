@@ -23,7 +23,15 @@
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".shop.activity.SpecialDetailActivity" />
         <activity android:name=".shop.activity.BrandDetailActivity" />
-        <activity android:name=".shop.activity.TypeErjiActivity"></activity>
+        <activity android:name=".shop.activity.TypeErjiActivity" />
+        <activity android:name=".shop.activity.HomeDetailActivity" />
+        <activity android:name=".shop.activity.ShopGiftActivity" />
+        <activity android:name=".shop.activity.ShopGiftHolidayActivity" />
+        <activity android:name=".shop.activity.ShopGiftLoveActivity" />
+        <activity android:name=".shop.activity.ShopGiftBrithdayActivity" />
+        <activity android:name=".shop.activity.ShopGiftFriendActivity" />
+        <activity android:name=".shop.activity.ShopGiftChildActivity" />
+        <activity android:name=".shop.activity.ShopGiftParentActivity"></activity>
     </application>
 
 </manifest>

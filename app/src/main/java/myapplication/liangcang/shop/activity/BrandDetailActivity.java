@@ -2,13 +2,19 @@ package myapplication.liangcang.shop.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,7 +40,8 @@ public class BrandDetailActivity extends AppCompatActivity {
     Button btnShopBandChanpin;
     @Bind(R.id.activity_brand_detail)
     LinearLayout activityBrandDetail;
-    private  String name;
+    //private  String name;
+    //private BrandInfo.DataBean.ItemsBean datas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +52,26 @@ public class BrandDetailActivity extends AppCompatActivity {
         //tvTitleBiaoti.setText();
         Intent intent =getIntent();
         String name = intent.getStringExtra("name");
-        Bitmap icon = intent.getParcelableExtra("icon");
+
         tvTitleBiaoti.setText("品牌产品");
         tvShopBandName.setText(name);
-        ivShopBandIcon.setImageBitmap(icon);
-        //ivShopBandIcon.setImageBitmap(icon);
+
+
+        Uri uri = intent.getData();
+//        Glide.with(BrandDetailActivity.this).load(uri)
+//                .placeholder(R.drawable.ic_login_logo).
+//                error(R.drawable.ic_login_logo).
+//                diskCacheStrategy(DiskCacheStrategy.ALL)
+//                .into(ivShopBandIcon);
+        Glide.with(BrandDetailActivity.this).load(uri).asBitmap().centerCrop().into(new BitmapImageViewTarget(ivShopBandIcon) {
+            @Override
+            protected void setResource(Bitmap resource) {
+                RoundedBitmapDrawable circularBitmapDrawable =
+                        RoundedBitmapDrawableFactory.create(BrandDetailActivity.this.getResources(), resource);
+                circularBitmapDrawable.setCircular(true);
+                ivShopBandIcon.setImageDrawable(circularBitmapDrawable);
+            }
+        });
     }
 
 

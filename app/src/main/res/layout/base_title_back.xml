@@ -6,12 +6,13 @@
     <RelativeLayout
         android:background="#303235"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="40dp">
         <TextView
             android:id="@+id/tv_title_biaoti"
             android:textColor="#fff"
             android:gravity="center"
             android:text="标题"
+            android:textSize="15sp"
             android:layout_centerVertical="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

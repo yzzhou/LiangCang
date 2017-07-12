@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:minHeight="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/item_two_one"
+        android:scaleType="fitXY"
+        android:layout_width="0dp"
+        app:layout_widthPercent="50%"
+        android:layout_height="200dp" />
+    <ImageView
+        android:id="@+id/item_two_two"
+        android:scaleType="fitXY"
+        android:layout_toRightOf="@id/item_two_one"
+        app:layout_widthPercent="50%"
+        android:layout_width="0dp"
+        android:layout_height="200dp" />
+
+</android.support.percent.PercentRelativeLayout>

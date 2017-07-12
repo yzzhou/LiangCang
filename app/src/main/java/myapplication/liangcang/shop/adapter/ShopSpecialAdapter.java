@@ -35,9 +35,8 @@ public class ShopSpecialAdapter extends RecyclerView.Adapter<ShopSpecialAdapter.
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = View.inflate(context, R.layout.item_shop_special, null);
-        MyViewHolder view = new MyViewHolder(itemView);
-
+        View item = View.inflate(context, R.layout.item_shop_special, null);
+        MyViewHolder view = new MyViewHolder(item);
         return  view;
     }
 

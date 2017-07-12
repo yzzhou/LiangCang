@@ -36,7 +36,7 @@ public class TypeErjiActivity extends BaseActivity {
     @Bind(R.id.activity_type_erji)
     LinearLayout activityTypeErji;
     private Uri url;
-
+    private String[] urls = new String[] {};
     @Override
     public void initListener() {
 

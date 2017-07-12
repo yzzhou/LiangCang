@@ -177,6 +177,7 @@ public class BrandInfo {
             public void setBrand_logo(String brand_logo) {
                 this.brand_logo = brand_logo;
             }
+
         }
     }
 }

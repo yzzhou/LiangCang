@@ -12,9 +12,8 @@
         android:paddingTop="20dp"
         android:id="@+id/iv_shop_band_icon"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/ic_login_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
     <TextView
         android:id="@+id/tv_shop_band_name"
         android:textSize="20sp"
